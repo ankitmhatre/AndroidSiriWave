@@ -41,6 +41,9 @@ dependencies {
         app:wave_color="#fff"
         app:waveRefreshInterval="30"/>
 ```
+## Download
+
+[![Dowload from Google Play](https://i.imgur.com/g9vve1f.png "Download from Google Play")](https://play.google.com/store/apps/details?id=com.am.siri_ios_8_waveform)
 
 ## License
 License under GNU GPL v3.0
