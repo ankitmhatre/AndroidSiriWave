@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#000"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+        android:id="@+id/tView"
+        android:layout_above="@+id/root_google"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:textColor="#fff" />
+
+    <com.am.siriview.DrawView
+        android:background="#000"
+        android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+        android:id="@+id/root_google"
+        android:layout_alignParentBottom="true"
+        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:visibility="invisible"
+        app:wave_color="#00ffe1" />
+
+    <ImageView
+        android:background="@drawable/circle_shape"
+        android:id="@+id/centerImage1"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="84dp"
+        android:layout_marginBottom="16dp"
+        android:layout_width="84dp"
+        android:padding="12dp"
+        android:src="@drawable/ic_mic_none_white_24dp" />
+</RelativeLayout>

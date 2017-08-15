@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="waver_width">3dp</dimen>
+    <dimen name="waver_width_min">1dp</dimen>
+</resources>

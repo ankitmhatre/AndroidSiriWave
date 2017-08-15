@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#000"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.am.siriview.DrawView
+        android:background="#000"
+        android:gravity="center"
+        android:id="@+id/root_adjust"
+        android:layout_alignParentBottom="true"
+        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        app:wave_color="#fff" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_alignLeft="@+id/root_adjust"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:layout_width="match_parent"
+        android:max="3200" />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_alignLeft="@+id/seekBar"
+        android:layout_alignRight="@+id/seekBar"
+        android:layout_below="@+id/seekBar"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_width="wrap_content"
+        android:max="50" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:text="Amplitude "
+        android:textColor="#fff" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_alignBottom="@+id/seekBar2"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_width="wrap_content"
+        android:text="Refresh  Interval"
+        android:textColor="#fff" />
+</RelativeLayout>

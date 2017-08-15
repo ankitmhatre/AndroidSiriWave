@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SiriWaveView">
+        <attr name="wave_color" format="color" />
+        <attr name="wave_count" format="integer" />
+        <attr name="waveRefreshInterval" format="integer" />
+    </declare-styleable>
+</resources>
