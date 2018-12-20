@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidSiriWave.iml" filepath="$PROJECT_DIR$/AndroidSiriWave.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Siri-ios-8-waveform.iml" filepath="$PROJECT_DIR$/Siri-ios-8-waveform.iml" />
       <module fileurl="file://$PROJECT_DIR$/example/example.iml" filepath="$PROJECT_DIR$/example/example.iml" />
       <module fileurl="file://$PROJECT_DIR$/siriview/siriview.iml" filepath="$PROJECT_DIR$/siriview/siriview.iml" />
     </modules>
