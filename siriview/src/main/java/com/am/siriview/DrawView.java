@@ -1,5 +1,6 @@
 package com.am.siriview;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -7,11 +8,11 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.LinearLayout;
-import com.am.siriview.BuildConfig;
 import java.util.ArrayList;
 
 public class DrawView extends LinearLayout {
@@ -20,13 +21,12 @@ public class DrawView extends LinearLayout {
     private int ViewWidth = 0;
     public float amplitude = 0.5f;
     public float density = 1.0f;
-    private boolean drawlock = false;
+    private boolean drawLock = false;
     public float frequency = 1.2f;
     public float maxAmplitude = 0.0f;
     public int numberOfWaves;
-    private ArrayList<Paint> paintsArray = new ArrayList();
+    private ArrayList<Paint> paintsArray = new ArrayList<>();
     private Path path2;
-    private ArrayList<Path> pathArray = new ArrayList();
     public float phase = 0.0f;
     public float phaseShift = -0.25f;
     int refreshInterval = 30;
@@ -42,6 +42,7 @@ public class DrawView extends LinearLayout {
         initialize(context, attrs, defStyleAttr);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public DrawView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         initialize(context, attrs, defStyleAttr);
@@ -88,8 +89,8 @@ public class DrawView extends LinearLayout {
 
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!this.drawlock) {
-            this.drawlock = true;
+        if (!this.drawLock) {
+            this.drawLock = true;
             for (int i = 0; i < this.numberOfWaves; i++) {
                 float normedAmplitude = ((1.5f * (1.0f - (((float) i) / ((float) this.numberOfWaves)))) - 0.5f) * this.amplitude;
                 this.path2.reset();
@@ -103,10 +104,10 @@ public class DrawView extends LinearLayout {
                     }
                     x += this.density;
                 }
-                Paint p = (Paint) this.paintsArray.get(i);
+                Paint p = this.paintsArray.get(i);
                 canvas.drawPath(this.path2, p);
             }
-            this.drawlock = false;
+            this.drawLock = false;
         }
     }
 

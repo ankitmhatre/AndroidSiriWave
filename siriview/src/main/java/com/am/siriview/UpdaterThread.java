@@ -3,10 +3,10 @@ package com.am.siriview;
 import android.app.Activity;
 
 public class UpdaterThread extends Thread {
-    int REFRESH_INTERVAL_MS;
-    Activity c;
-    float tr = 0.0f;
-    DrawView v;
+    private int REFRESH_INTERVAL_MS;
+    private Activity c;
+    private float tr = 0.0f;
+    private DrawView v;
 
     public UpdaterThread(DrawView v, Activity c) {
         this.v = v;

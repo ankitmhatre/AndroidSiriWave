@@ -12,13 +12,11 @@ import com.am.siriview.UpdaterThread;
 import java.io.IOException;
 
 public class MediaRecordActivity extends AppCompatActivity {
-    long REFRESH_INTERVAL_MS = 30;
+    private long REFRESH_INTERVAL_MS = 30;
     private boolean keepGoing = true;
-    LinearLayout layout;
-    MediaRecorder mRecorder;
-    float tr = 400.0f;
-    UpdaterThread up;
-    DrawView view;
+    private MediaRecorder mRecorder;
+    private float tr = 400.0f;
+    private DrawView view;
 
     public void startVoiceRecorder() {
         this.mRecorder = new MediaRecorder();
@@ -37,7 +35,7 @@ public class MediaRecordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.media_recorder_layout);
-        this.view = (DrawView) findViewById(R.id.root);
+        this.view = findViewById(R.id.root);
         startVoiceRecorder();
         new Thread(new Runnable() {
             public void run() {

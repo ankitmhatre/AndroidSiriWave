@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     public void showElements() {
         setContentView(R.layout.activity_main);
-        this.b1 = (Button) findViewById(R.id.b1);
-        this.b2 = (Button) findViewById(R.id.b2);
-        this.b3 = (Button) findViewById(R.id.b3);
+        this.b1 = findViewById(R.id.b1);
+        this.b2 = findViewById(R.id.b2);
+        this.b3 = findViewById(R.id.b3);
         this.b1.setOnClickListener(this);
         this.b2.setOnClickListener(this);
         this.b3.setOnClickListener(this);
@@ -38,15 +38,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         switch (view.getId()) {
             case R.id.b1 /*2131427422*/:
                 startActivity(new Intent(this, GoogleSpeechActivity.class));
-                return;
+                break;
             case R.id.b2 /*2131427423*/:
                 startActivity(new Intent(this, MediaRecordActivity.class));
-                return;
+                break;
             case R.id.b3 /*2131427424*/:
                 startActivity(new Intent(this, AdjustableActivity.class));
-                return;
+                break;
             default:
-                return;
+                break;
         }
     }
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             case 213:
                 if (grantResults[0] == 0) {
                     showElements();
-                    return;
+                    break;
                 } else {
                     setContentView(R.layout.need_permission);
                     findViewById(R.id.qwerty).setOnClickListener(new OnClickListener() {
@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                         }
                     });
                 }
-                return;
+                break;
             default:
-                return;
+                break;
         }
     }
 }

@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.am.siriview.DrawView;
 import com.am.siriview.UpdaterThread;
 
@@ -23,29 +22,24 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
 
-
-
 public class GoogleSpeechActivity extends AppCompatActivity implements RecognitionListener {
     private static final int REFRESH_INTERVAL_MS = 30;
     private static final int REQUEST_PERMISSION_RECORD_AUDIO = 1;
-    ImageView imageView;
-    private boolean keepGoing = true;
-    DrawView layout;
-    String resultSpeech;
-    TextView resultText;
-    SpeechRecognizer speechRecognizer;
-    float tr = 0.0f;
-    UpdaterThread up;
-    private DrawView view;
+    private ImageView imageView;
+    private DrawView layout;
+    private TextView resultText;
+    private SpeechRecognizer speechRecognizer;
+    private float tr = 0.0f;
+    private UpdaterThread up;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.google_speech_layout);
-        this.layout = (DrawView) findViewById(R.id.root_google);
+        this.layout = findViewById(R.id.root_google);
         this.up = new UpdaterThread(REFRESH_INTERVAL_MS, this.layout, this);
-        this.resultText = (TextView) findViewById(R.id.tView);
+        this.resultText = findViewById(R.id.tView);
         this.up.start();
-        this.imageView = (ImageView) findViewById(R.id.centerImage1);
+        this.imageView = findViewById(R.id.centerImage1);
         this.imageView.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {
                 GoogleSpeechActivity.this.checkPermissionsAndStart();
@@ -89,7 +83,7 @@ public class GoogleSpeechActivity extends AppCompatActivity implements Recogniti
         this.imageView.setVisibility(View.VISIBLE);
         this.layout.setVisibility(View.INVISIBLE);
         this.tr = 0.0f;
-        Log.d("Error Recording", BuildConfig.FLAVOR + i);
+        Log.d("Error Recording: ", BuildConfig.FLAVOR + i);
     }
 
     public void onResults(Bundle bundle) {
@@ -97,18 +91,21 @@ public class GoogleSpeechActivity extends AppCompatActivity implements Recogniti
         this.imageView.setVisibility(View.VISIBLE);
         this.layout.setVisibility(View.INVISIBLE);
         this.tr = 0.0f;
-        ArrayList<String> arraylist = bundle.getStringArrayList("results_recognition");
-        Iterator it = arraylist.iterator();
-        while (it.hasNext()) {
-            Log.d("myApplication", (String) it.next());
+        ArrayList<String> arrayList = bundle.getStringArrayList("results_recognition");
+        try {
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                Log.d("onResults: ", (String) it.next());
+            }
+            this.resultText.setText(arrayList.get(0).toLowerCase());
+        } catch (NullPointerException e) {
+            Log.e("onResults","Exception: " + e.getMessage());
         }
-        this.resultSpeech = ((String) arraylist.get(0)).toLowerCase();
-        this.resultText.setText(this.resultSpeech);
     }
 
     public void startVoiceRecorder() {
         try {
-            Log.d("VoiceREcorder", "started");
+            Log.d("VoiceRecorder: ", "started");
             try {
                 this.speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
                 this.speechRecognizer.setRecognitionListener(this);
@@ -120,7 +117,7 @@ public class GoogleSpeechActivity extends AppCompatActivity implements Recogniti
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            Log.d("VoiceRecorder", "startedListening");
+            Log.d("VoiceRecorder: ", "startedListening");
         } catch (Exception e2) {
             Toast.makeText(this, "You don't have any voice recognizer app installed, Download from Google Play store", Toast.LENGTH_SHORT).show();
             e2.printStackTrace();
@@ -163,13 +160,13 @@ public class GoogleSpeechActivity extends AppCompatActivity implements Recogniti
             case REQUEST_PERMISSION_RECORD_AUDIO /*1*/:
                 if (grantResults.length <= 0 || grantResults[0] != 0) {
                     finish();
-                    return;
+                    break;
                 } else {
                     checkPermissionsAndStart();
-                    return;
+                    break;
                 }
             default:
-                return;
+                break;
         }
     }
 
