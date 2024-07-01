@@ -1,3 +1,7 @@
+ [View This library on Google Play](https://bit.ly/amioswave)
+
+<img width="200" alt="Screenshot 2024-07-01 at 12 07 43 PM" src="https://github.com/ankitmhatre/AndroidSiriWave/assets/6874272/72cce6f7-2283-4791-a580-3f779bcfa018">
+
 # AndroidSiriWave
 Android View which can act as iOS8 SiriWave
 
