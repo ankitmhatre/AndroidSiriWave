@@ -1,6 +1,8 @@
- [View This library on Google Play](https://bit.ly/amioswave)
 
-<img width="200" alt="Screenshot 2024-07-01 at 12 07 43 PM" src="https://github.com/ankitmhatre/AndroidSiriWave/assets/6874272/72cce6f7-2283-4791-a580-3f779bcfa018">
+
+[View This library on Google Play](https://bit.ly/amioswave)
+
+<img width="200" alt="Screenshot 2024-07-01 at 12 07 43 PM" src="https://github.com/ankitmhatre/AndroidSiriWave/assets/6874272/72cce6f7-2283-4791-a580-3f779bcfa018">
 
 # AndroidSiriWave
 Android View which can act as iOS8 SiriWave
@@ -8,7 +10,7 @@ Android View which can act as iOS8 SiriWave
 ## Description
 AndroidSiriWave extends LinearLayout that reproduces the waveform effect seen in Siri on iOS 7 and iOS 8. 
 
-It is a Swift adaptation of the amazing [SCSiriWaveformView](https://github.com/stefanceriu/SCSiriWaveformView) by [Stefan Ceriu](https://github.com/stefanceriu).
+It is an Android adaptation of the amazing [SCSiriWaveformView](https://github.com/stefanceriu/SCSiriWaveformView) by [Stefan Ceriu](https://github.com/stefanceriu).
 
 Thanks for [Kevinzhow](https://github.com/kevinzhow) for his awesome implementation of this ios Wave form 
 
